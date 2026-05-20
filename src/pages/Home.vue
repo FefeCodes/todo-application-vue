@@ -91,6 +91,6 @@ const handleSubmit = () => {
       </select>
     </div>
 
-    <TaskList :search="search" :filter="filter" :refetchTrigger="refetchTrigger" />
+    <TaskList :search="search" :filter="filter" />
   </div>
 </template>

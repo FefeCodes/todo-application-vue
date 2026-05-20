@@ -4,6 +4,6 @@ throw new Error('This is a test error!')
 
 <template>
   <div>
-    <p>Loading test environment...</p>
+    <p>Loading Test...</p>
   </div>
 </template>

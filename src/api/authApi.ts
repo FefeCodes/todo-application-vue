@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { User, AuthResponse } from '../types'
+import type { User, AuthResponse } from '../types'
 
 const BASE_URL = 'https://api.oluwasetemi.dev'
 

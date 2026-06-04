@@ -13,7 +13,7 @@ const { mutate: toggleTask } = useMutation({
     const isNowCompleted = !props.task.completed
     return api.updateTask(props.task.id, {
       completed: isNowCompleted,
-      status: isNowCompleted ? 'DONE' : 'TODO', // Sync status with completed state
+      status: isNowCompleted ? 'DONE' : 'TODO',
     })
   },
   onSuccess: () => {

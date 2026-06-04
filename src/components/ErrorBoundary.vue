@@ -11,7 +11,6 @@ onErrorCaptured((err, instance, info) => {
   hasError.value = true
   error.value = err as Error
 
-  // Return false to stop the error from propagating further up to the app root
   return false
 })
 

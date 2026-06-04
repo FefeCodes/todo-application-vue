@@ -31,7 +31,6 @@ const { data, isLoading, isError, error, refetch } = useQuery({
   staleTime: 1000 * 60 * 5,
 })
 
-// Refetch when the prop from Home.vue toggles
 watch(
   () => props.refetchTrigger,
   () => {
@@ -39,7 +38,6 @@ watch(
   },
 )
 
-// Reset to page 1 when items per page changes
 watch(itemsPerPage, () => {
   page.value = 1
 })
@@ -58,7 +56,6 @@ onUnmounted(() => {
   window.removeEventListener('offline', updateOnlineStatus)
 })
 
-// Computed property to handle all filtering reactively
 const filteredTasks = computed(() => {
   let tasks: Task[] = data.value?.data || []
 

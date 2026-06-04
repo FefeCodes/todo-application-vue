@@ -11,7 +11,6 @@ const toast = useToast()
 const name = ref(user.value?.name || '')
 const email = ref(user.value?.email || '')
 
-// In case the user details arrive slightly after mount
 watch(user, (newUser) => {
   if (newUser) {
     name.value = newUser.name

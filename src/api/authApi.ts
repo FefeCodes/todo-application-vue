@@ -26,13 +26,6 @@ export const login = async (credentials: Record<string, string>): Promise<AuthRe
 }
 
 export const logout = async (): Promise<void> => {
-  // await axios.post(
-  //   `${BASE_URL}/auth/logout`,
-  //   {},
-  //   {
-  //     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-  //   },
-  // );
   localStorage.removeItem('token')
   localStorage.removeItem('refreshToken')
   localStorage.removeItem('user')

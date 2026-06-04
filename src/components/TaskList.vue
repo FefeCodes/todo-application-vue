@@ -25,7 +25,7 @@ const { user } = useAuth()
 const limit = computed(() => (itemsPerPage.value === 'all' ? 1000000 : Number(itemsPerPage.value)))
 
 const { data, isLoading, isError, error, refetch } = useQuery({
-  queryKey: () => ['tasks', page.value, itemsPerPage.value],
+  queryKey: ['tasks', page, itemsPerPage],
   queryFn: () => api.fetchTasks(page.value, limit.value),
   placeholderData: keepPreviousData,
   staleTime: 1000 * 60 * 5,
@@ -95,12 +95,14 @@ const filteredTasks = computed(() => {
 })
 
 const totalPages = computed(() => {
-  const meta = data.value?.meta || {}
+  const meta = data.value?.meta
   return (
-    meta.totalPages ||
+    meta?.totalPages ||
     Math.max(
       1,
-      Math.ceil((meta.total || 0) / (itemsPerPage.value === 'all' ? meta.total || 1 : limit.value)),
+      Math.ceil(
+        (meta?.total || 0) / (itemsPerPage.value === 'all' ? meta?.total || 1 : limit.value),
+      ),
     )
   )
 })

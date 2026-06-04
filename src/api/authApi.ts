@@ -3,7 +3,7 @@ import type { User, AuthResponse } from '../types'
 
 const BASE_URL = 'https://api.oluwasetemi.dev'
 
-export const register = async (user: Partial<User>): Promise<AuthResponse> => {
+export const register = async (user: Record<string, string>): Promise<AuthResponse> => {
   const { data, status } = await axios.post<AuthResponse>(`${BASE_URL}/auth/register`, user)
   if (status === 201) {
     localStorage.setItem('token', data.accessToken || '')

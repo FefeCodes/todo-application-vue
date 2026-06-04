@@ -29,7 +29,7 @@ export function useAuth() {
     user.value = null
   }
 
-  const register = async (userInfo: Partial<User>) => {
+  const register = async (userInfo: Record<string, string>) => {
     const data = await api.register(userInfo)
     user.value = data.user
     return data.message || 'Registration successful'
